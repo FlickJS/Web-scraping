@@ -1,2 +1,7 @@
 # Web scraping
- Web scraping
+ Web scraping for https://www.mediaexpert.pl, version 1.0 (update soon).
+
+## How to use:
+1. Just copy script to console on product page
+2. Object data will be stored in your local storage
+
