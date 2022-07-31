@@ -18,9 +18,9 @@ let data;
   const brand = document.querySelector("meta[property='product:brand']").getAttribute("content");
   const image = document.querySelector("meta[name='og:image']").getAttribute("content");
   if(website && title && price && brand && image) {
-  data.products.push(new Item(website, title, price, brand, image));
-  window.localStorage.setItem("element", JSON.stringify(data));
-  }else{
+	data.products.push(new Item(website, title, price, brand, image));
+	window.localStorage.setItem("element", JSON.stringify(data));
+  } else {
     console.error("Missing data");
   }
 })();
