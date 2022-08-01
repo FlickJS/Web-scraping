@@ -27,7 +27,7 @@ class ScrapeWeb extends Item {
   _savaData = (metaTags) => {
     for (let i = 0; i < metaTags.length; i++) {
       if (metaTags[i] === "") {
-        return console.log(`Item of index ${metaTags[i]} is empty string. Missing data.`);
+        return console.log(`Item of index ${[i]} is empty string. Missing data.`);
       }
     }
     data.products.push(new Item(...metaTags));
