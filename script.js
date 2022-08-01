@@ -18,11 +18,11 @@ class ScrapeWeb extends Item {
   }
   _getData = () => {
     getItems ? data = {products: [...getItems.products]} : data = {products: []};
-    const website = document.location.origin + document.location.pathname;
-    const title = document.querySelector("meta[property='og:title']").getAttribute("content");
-    const price = document.querySelector("meta[property='product:price:amount']").getAttribute("content");
-    const brand = document.querySelector("meta[property='product:brand']").getAttribute("content");
-    const image = document.querySelector("meta[name='og:image']").getAttribute("content");
+    const website = document.location.origin + document.location.pathname || "";
+    const title = document.querySelector("meta[property='og:title']")?.getAttribute("content") || "";
+    const price = document.querySelector("meta[property='product:price:amount']")?.getAttribute("content") || "";
+    const brand = document.querySelector("meta[property='product:brand']")?.getAttribute("content") || "";
+    const image = document.querySelector("meta[name='og:image']")?.getAttribute("content") || "";
     const metaTags = [website, title, price, brand, image];
     return metaTags;
   }
