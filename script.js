@@ -1,7 +1,7 @@
 let getItems = JSON.parse(window.localStorage.getItem("element"));
-let data;
+let dataItems;
 
-class Item {
+class createItem {
   constructor(website, title, price, brand, image) {
     this.website = website;
     this.title = title;
@@ -11,13 +11,13 @@ class Item {
   }
 };
 
-class ScrapeWeb extends Item {
+class scrapeWeb extends Item {
   constructor(website, title, price, brand, image) {
     super(website, title, price, brand, image);
     this._scraping();
   }
   _getData = () => {
-    getItems ? data = {products: [...getItems.products]} : data = {products: []};
+    getItems ? dataItems = {products: [...getItems.products]} : dataItems = {products: []};
     const website = document.location.origin + document.location.pathname || "";
     const title = document.querySelector("meta[property='og:title']")?.getAttribute("content") || "";
     const price = document.querySelector("meta[property='product:price:amount']")?.getAttribute("content") || "";
@@ -32,13 +32,15 @@ class ScrapeWeb extends Item {
         return console.log(`Item of index ${[i]} is empty string. Missing data.`);
       }
     }
-    data.products.push(new Item(...metaTags));
-    window.localStorage.setItem("element", JSON.stringify(data));
+    dataItems.products.push(new createItem(...metaTags));
+    window.localStorage.setItem("element", JSON.stringify(dataItems));
   }
   _scraping = () => {
     const metaTags = this._getData();
     this._savaData(metaTags);
+    console.log(`The scraping was successful, your item will be stored in your local storage in an object named dataItems.`);
   };
 }
 
-const init = new ScrapeWeb();
+const initItem = new scrapeWeb();
+
