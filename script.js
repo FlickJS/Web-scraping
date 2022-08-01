@@ -1,5 +1,6 @@
 let getItems = JSON.parse(window.localStorage.getItem("element"));
 let data;
+
 class Item {
   constructor(website, title, price, brand, image) {
     this.website = website;
@@ -9,6 +10,7 @@ class Item {
     this.image = image;
   }
 };
+
 class ScrapeWeb extends Item {
   constructor(website, title, price, brand, image) {
     super(website, title, price, brand, image);
