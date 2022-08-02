@@ -1,4 +1,4 @@
-let getItems = JSON.parse(window.localStorage.getItem("element"));
+const getItems = JSON.parse(window.localStorage.getItem("element"));
 let dataItems;
 
 class createItem {
