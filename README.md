@@ -1,5 +1,9 @@
 # Web scraping
- Web scraping for https://www.mediaexpert.pl, version 1.0 (update soon).
+ Web scraping for https://www.mediaexpert.pl, version 1.1.
+ 
+ 1.0 - First version 
+ 
+ 1.1 - Divide code into separate functions. 
 
 ## How to use:
 1. Just copy script to console on product page

@@ -1,5 +1,6 @@
 const getItems = JSON.parse(window.localStorage.getItem("element"));
 let dataItems;
+
 class createItem {
   constructor(website, title, price, brand, image) {
     this.website = document.location.origin + document.location.pathname || "";
@@ -9,6 +10,7 @@ class createItem {
     this.image = document.querySelector("meta[name='og:image']")?.getAttribute("content") || "";
   }
 };
+
 class scrapeWeb {
   constructor(website, title, price, brand, image) {
     this._scraping();
