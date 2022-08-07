@@ -11,9 +11,8 @@ class createItem {
   }
 };
 
-class scrapeWeb extends createItem {
+class scrapeWeb {
   constructor(website, title, price, brand, image) {
-    super(website, title, price, brand, image);
     this._scraping();
   }
   _getData = () => {
