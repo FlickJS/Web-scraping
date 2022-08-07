@@ -9,3 +9,5 @@
 1. Just copy script to console on product page
 2. Object data will be stored in your local storage
 
+## Performance 
+~ 0.3 milliseconds to execute
