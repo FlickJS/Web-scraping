@@ -1,27 +1,21 @@
-let getItems = JSON.parse(window.localStorage.getItem("element"));
+const getItems = JSON.parse(window.localStorage.getItem("element"));
 let dataItems;
 class createItem {
   constructor(website, title, price, brand, image) {
-    this.website = website;
-    this.title = title;
-    this.price = price;
-    this.brand = brand;
-    this.image = image;
+    this.website = document.location.origin + document.location.pathname || "";
+    this.title = document.querySelector("meta[property='og:title']")?.getAttribute("content") || "";
+    this.price = document.querySelector("meta[property='product:price:amount']")?.getAttribute("content") || "";
+    this.brand = document.querySelector("meta[property='product:brand']")?.getAttribute("content") || "";
+    this.image = document.querySelector("meta[name='og:image']")?.getAttribute("content") || "";
   }
 };
-class scrapeWeb extends Item {
+class scrapeWeb {
   constructor(website, title, price, brand, image) {
-    super(website, title, price, brand, image);
     this._scraping();
   }
   _getData = () => {
     getItems ? dataItems = {products: [...getItems.products]} : dataItems = {products: []};
-    const website = document.location.origin + document.location.pathname || "";
-    const title = document.querySelector("meta[property='og:title']")?.getAttribute("content") || "";
-    const price = document.querySelector("meta[property='product:price:amount']")?.getAttribute("content") || "";
-    const brand = document.querySelector("meta[property='product:brand']")?.getAttribute("content") || "";
-    const image = document.querySelector("meta[name='og:image']")?.getAttribute("content") || "";
-    const metaTags = [website, title, price, brand, image];
+    const metaTags = [this.website, this.title, this.price, this.brand, this.image];
     return metaTags;
   }
   _savaData = (metaTags) => {
