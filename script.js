@@ -11,15 +11,18 @@ class createItem {
   }
 };
 
-class scrapeWeb {
+class scrapeWeb extends createItem {
   constructor(website, title, price, brand, image) {
+    super(website, title, price, brand, image);
     this._scraping();
   }
+
   _getData = () => {
     getItems ? dataItems = {products: [...getItems.products]} : dataItems = {products: []};
     const metaTags = [this.website, this.title, this.price, this.brand, this.image];
     return metaTags;
   }
+
   _savaData = (metaTags) => {
     for (let i = 0; i < metaTags.length; i++) {
       if (metaTags[i] === "") {
@@ -29,6 +32,7 @@ class scrapeWeb {
     dataItems.products.push(new createItem(...metaTags));
     window.localStorage.setItem("element", JSON.stringify(dataItems));
   }
+  
   _scraping = () => {
     const metaTags = this._getData();
     this._savaData(metaTags);
