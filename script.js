@@ -10,6 +10,7 @@ class createItem {
     this.image = document.querySelector("meta[name='og:image']")?.getAttribute("content") || "";
   }
 };
+
 class scrapeWeb extends createItem {
   constructor(website, title, price, brand, image) {
     super(website, title, price, brand, image);
