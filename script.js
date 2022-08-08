@@ -10,20 +10,19 @@ class createItem {
     this.image = document.querySelector("meta[name='og:image']")?.getAttribute("content") || "";
   }
 };
-
 class scrapeWeb extends createItem {
   constructor(website, title, price, brand, image) {
     super(website, title, price, brand, image);
-    this._scraping();
+    this.#scraping();
   }
 
-  _getData = () => {
+  #getData = () => {
     getItems ? dataItems = {products: [...getItems.products]} : dataItems = {products: []};
     const metaTags = [this.website, this.title, this.price, this.brand, this.image];
     return metaTags;
   }
 
-  _savaData = (metaTags) => {
+  #savaData = (metaTags) => {
     for (let i = 0; i < metaTags.length; i++) {
       if (metaTags[i] === "") {
         return console.log(`Item of index ${[i]} is empty string. Missing data.`);
@@ -33,11 +32,12 @@ class scrapeWeb extends createItem {
     window.localStorage.setItem("element", JSON.stringify(dataItems));
   }
   
-  _scraping = () => {
-    const metaTags = this._getData();
-    this._savaData(metaTags);
+  #scraping = () => {
+    const metaTags = this.#getData();
+    this.#savaData(metaTags);
     console.log(`The scraping was successful, your item will be stored in your local storage in an object named dataItems.`);
   };
 }
 
 const initItem = new scrapeWeb();
+
